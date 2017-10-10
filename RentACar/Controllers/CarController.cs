@@ -6,24 +6,21 @@ using System.Web.Mvc;
 
 namespace RentACar.Controllers
 {
-    public class HomeController : Controller
+    public class CarController : Controller
     {
+        // GET: Car
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Cars()
         {
-            ViewBag.Message = "We are RentACar Timisoara";
-
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult NewRent()
         {
-            ViewBag.Message = "Where you can find us.";
-
             return View();
         }
     }
