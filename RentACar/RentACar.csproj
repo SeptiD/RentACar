@@ -210,6 +210,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Cars.mdf" />
+    <Content Include="App_Data\Cars_log.ldf">
+      <DependentUpon>Cars.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -273,7 +277,6 @@
     <Content Include="Views\Car\NewRent.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Images\CarImages\" />
     <Folder Include="Images\IndexImages\" />
   </ItemGroup>
