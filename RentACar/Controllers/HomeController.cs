@@ -12,7 +12,7 @@ namespace RentACar.Controllers
         {
             return View();
         }
-
+        
         public ActionResult About()
         {
             ViewBag.Message = "We are RentACar Timisoara";
