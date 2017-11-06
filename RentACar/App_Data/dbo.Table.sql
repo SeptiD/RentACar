@@ -5,7 +5,7 @@
     [Name]         NVARCHAR (20) NOT NULL,
     [Available]    BIT           NOT NULL,
     [Description]  TEXT          NULL,
-    [Image]        VARBINARY(MAX)         NULL,
+    [Image]        NVARCHAR(50)         NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

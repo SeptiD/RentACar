@@ -26,8 +26,9 @@ namespace RentACar.Controllers
         {
             
             var thisCar = db.MyCars.Find(id);
-            return Content(thisCar.ToString());
-            
+            return View();
+            //return Content(thisCar.ToString());
+
         }
         [Authorize]
         public ActionResult NewRent()

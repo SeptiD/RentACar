@@ -28,7 +28,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Image)
+           @Html.DisplayNameFor(model => model.Image)
         </th>
         <th></th>
     </tr>
@@ -51,7 +51,8 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
+           
+           <img src=@(Url.Content("~/Images/CarImages/"+item.Brand+item.Name+".jpg")) alt="rentImage" width="100px" height="100px" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
