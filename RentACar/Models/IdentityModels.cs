@@ -30,6 +30,6 @@ namespace RentACar.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<RentACar.Models.Table> Tables { get; set; }
+        public System.Data.Entity.DbSet<RentACar.Models.MyCar> Tables { get; set; }
     }
 }

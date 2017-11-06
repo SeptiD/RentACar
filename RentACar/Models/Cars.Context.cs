@@ -25,6 +25,11 @@ namespace RentACar.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Table> Tables { get; set; }
+        public virtual DbSet<MyCar> MyCars { get; set; }
+
+        internal void AddToCarSet(MyCar carToCreate)
+        {
+            MyCars.Add(carToCreate);
+        }
     }
 }

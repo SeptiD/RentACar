@@ -16,7 +16,7 @@ namespace RentACar.Controllers
 
         public ActionResult Cars()
         {
-            var cars = from c in db.Tables
+            var cars = from c in db.MyCars
                 where c.Available == true
                 select c;
             return View(cars.ToList());
@@ -25,7 +25,7 @@ namespace RentACar.Controllers
         public ActionResult Details(int id)
         {
             
-            var thisCar = db.Tables.Find(id);
+            var thisCar = db.MyCars.Find(id);
             return Content(thisCar.ToString());
             
         }
@@ -34,5 +34,26 @@ namespace RentACar.Controllers
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Create([Bind(Exclude = "Id")] MyCar carToCreate)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            db.AddToCarSet(carToCreate);
+            db.SaveChanges();
+            return RedirectToAction("Cars");
+
+        }
+
+
     }
 }

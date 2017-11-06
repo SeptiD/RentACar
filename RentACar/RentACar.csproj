@@ -210,6 +210,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Cars.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cars.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cars.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cars.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,7 +222,7 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Table.cs">
+    <Compile Include="Models\MyCar.cs">
       <DependentUpon>Cars.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -307,6 +312,7 @@
     <Content Include="Views\Car\NewRent.cshtml" />
     <Content Include="Views\Car\Cars.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
+    <Content Include="Views\Car\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_GlobalResources\" />

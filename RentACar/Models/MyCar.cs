@@ -12,7 +12,7 @@ namespace RentACar.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Table
+    public partial class MyCar
     {
         public int Id { get; set; }
         public string LicencePlate { get; set; }
@@ -24,8 +24,7 @@ namespace RentACar.Models
 
         public override string ToString()
         {
-            return Brand+" "+Name+" "+Description;
+            return LicencePlate+ " "+Brand+" "+Name;
         }
     }
-
 }

@@ -25,7 +25,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Table">
+        <EntityType Name="MyCar">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -38,7 +38,7 @@
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityContainer Name="CarsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Tables" EntityType="Self.Table" />
+          <EntitySet Name="MyCars" EntityType="CarsModel.MyCar" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -46,8 +46,8 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="CarsModelStoreContainer" CdmEntityContainer="CarsEntities">
-          <EntitySetMapping Name="Tables">
-            <EntityTypeMapping TypeName="CarsModel.Table">
+          <EntitySetMapping Name="MyCars">
+            <EntityTypeMapping TypeName="CarsModel.MyCar">
               <MappingFragment StoreEntitySet="Table">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
