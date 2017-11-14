@@ -31,5 +31,13 @@ namespace RentACar.Models
         {
             MyCars.Add(carToCreate);
         }
+
+        internal void ChangeAvailability(int Id)
+        {
+            if (Id != -1)
+            {
+            MyCars.Find(Id).Available = false;               
+            } 
+        }
     }
 }

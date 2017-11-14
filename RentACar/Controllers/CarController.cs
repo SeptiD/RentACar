@@ -12,7 +12,7 @@ namespace RentACar.Controllers
     {
         CarsEntities db = new CarsEntities();
         // GET: Car
-        
+
 
         public ActionResult Cars()
         {
@@ -24,12 +24,13 @@ namespace RentACar.Controllers
 
         public ActionResult Details(int id)
         {
-            
+
             var thisCar = db.MyCars.Find(id);
             return View();
             //return Content(thisCar.ToString());
 
         }
+
         [Authorize]
         public ActionResult NewRent()
         {
@@ -40,10 +41,23 @@ namespace RentACar.Controllers
 
             foreach (var aCar in possibleCars)
             {
-                items.Add(new SelectListItem {Text =aCar.Name+" "+aCar.Brand,Value = aCar.Id.ToString()});
+                items.Add(new SelectListItem {Text = aCar.Name + " " + aCar.Brand, Value = aCar.Id.ToString()});
             }
             ViewBag.PossibleCars = items;
             return View();
+        }
+
+        public ActionResult UserSelectedCar(string PossibleCars)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            int id = -1;
+            id = int.Parse(PossibleCars);
+            db.ChangeAvailability(id);
+            db.SaveChanges();
+            return RedirectToAction("Cars");
         }
 
         public ActionResult Create()
