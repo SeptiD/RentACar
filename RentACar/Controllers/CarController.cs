@@ -33,6 +33,16 @@ namespace RentACar.Controllers
         [Authorize]
         public ActionResult NewRent()
         {
+            List<SelectListItem> items = new List<SelectListItem>();
+            var possibleCars = from c in db.MyCars
+                where c.Available == true
+                select c;
+
+            foreach (var aCar in possibleCars)
+            {
+                items.Add(new SelectListItem {Text =aCar.Name+" "+aCar.Brand,Value = aCar.Id.ToString()});
+            }
+            ViewBag.PossibleCars = items;
             return View();
         }
 
