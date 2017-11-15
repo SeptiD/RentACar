@@ -242,6 +242,9 @@
     <Content Include="Images\CarImages\FordKuga.jpg" />
     <Content Include="Images\CarImages\Mazda6break.jpg" />
     <Content Include="Images\CarImages\SeatLeon.jpg" />
+    <Content Include="Images\IndexImages\cars1.png" />
+    <Content Include="Images\IndexImages\cars2.jpg" />
+    <Content Include="Images\IndexImages\cars3.jpg" />
     <Content Include="Images\IndexImages\rentImage.jpg" />
     <Content Include="Models\Cars.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

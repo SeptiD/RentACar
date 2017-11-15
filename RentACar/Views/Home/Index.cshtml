@@ -2,11 +2,56 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>RentACar Timisoara</h1>
-    <p class="lead">Welcome to RentACar Timisoara.</p>
-    <center><img src="~/Images/IndexImages/rentImage.jpg" alt="rentImage" /></center>
-    <p>Our car renting company has options for every budget and every necesity.Whether you are looking for a fresh city car or for a vacation escape coupe we have plenty of options ready for you.</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhatml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script type="text/javascript">
+        var image1 = new Image()
+        image1.src = "/Images/IndexImages/cars1.png"
+        var image2 = new Image()
+        image2.src = "/Images/IndexImages/cars2.jpg"
+        var image3 = new Image()
+        image3.src = "/Images/IndexImages/cars3.jpg"
 
-</div>
+    </script>
 
+
+</head>
+<body>
+    <div class="jumbotron">
+
+        <h1>RentACar Timisoara</h1>
+        <p class="lead">Welcome to RentACar Timisoara.</p>
+        
+        
+        <form id="form1" runat="server">
+        <div>
+            <div >
+                <center><img alt="" class="corner" name="img" src="Images/IndexImages/rentImage.jpg" style="width: 820px; height: 307px;" /></center>
+                <script>
+                    var step = 1
+
+                    function slideImages() {
+                        if (!document.images)
+                            return
+                        document.images.img.src = eval("image" + step + ".src")
+                        if (step < 3)
+                            step++
+                        else
+                            step = 1
+                        setTimeout("slideImages()", 5000)
+                    }
+
+                    slideImages()
+
+                </script>
+            </div>
+        </div>
+        </form>
+
+        <p>Our car renting company has options for every budget and every necesity.Whether you are looking for a fresh city car or for a vacation escape coupe we have plenty of options ready for you.</p>
+
+    </div>
+
+</body>
+</html>
