@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RentACar.Models.MyCar>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<RentACar.Models.MyCar>
 
 @{
     ViewBag.Title = "Cars";
@@ -8,7 +9,12 @@
 <h2>Cars</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @{
+        if (System.Web.HttpContext.Current.User.Identity.GetUserName().Equals("admin@mcadmin.com"))
+        {
+            @Html.ActionLink("Create New", "Create");
+        }
+    }
 </p>
 <table class="table">
     <tr>
