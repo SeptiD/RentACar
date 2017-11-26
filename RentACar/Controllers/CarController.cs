@@ -79,6 +79,12 @@ namespace RentACar.Controllers
 
         }
 
-
+        [Authorize]
+        public ActionResult Delete(int id)
+        {
+            db.MyCars.Remove(db.MyCars.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("Cars");
+        }
     }
 }
