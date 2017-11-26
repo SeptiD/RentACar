@@ -26,7 +26,8 @@ namespace RentACar.Controllers
         {
 
             var thisCar = db.MyCars.Find(id);
-            return View();
+           
+            return View(thisCar);
             //return Content(thisCar.ToString());
 
         }
