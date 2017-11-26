@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using RentACar.Models;
 
 namespace RentACar.Controllers
@@ -48,14 +49,14 @@ namespace RentACar.Controllers
             return View();
         }
 
-        public ActionResult UserSelectedCar(string PossibleCars)
+        public ActionResult UserSelectedCar(string possibleCars)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
             int id = -1;
-            id = int.Parse(PossibleCars);
+            id = int.Parse(possibleCars);
             db.ChangeAvailability(id);
             db.SaveChanges();
             return RedirectToAction("Cars");
@@ -86,6 +87,18 @@ namespace RentACar.Controllers
             db.MyCars.Remove(db.MyCars.Find(id));
             db.SaveChanges();
             return RedirectToAction("Cars");
+
         }
+
+        public ActionResult Rent(int id)
+        {
+            if (HttpContext.User.Identity.IsAuthenticated == false)
+            {
+                return RedirectToAction("Login","Account");
+            }
+            UserSelectedCar(id.ToString());
+            return RedirectToAction("Cars", "Car");
+        }
+
     }
 }
