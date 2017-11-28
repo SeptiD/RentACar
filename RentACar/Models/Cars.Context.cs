@@ -32,12 +32,13 @@ namespace RentACar.Models
             MyCars.Add(carToCreate);
         }
 
-        internal void ChangeAvailability(int Id)
+        internal void ChangeAvailability(int Id,string renterId)
         {
             if (Id != -1)
             {
-                MyCars.Find(Id).Available = false;               
-            } 
+                MyCars.Find(Id).Renter = String.Copy(renterId);
+                MyCars.Find(Id).Available = false;
+            }
         }
     }
 }

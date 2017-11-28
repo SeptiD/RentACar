@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CarsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Table">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,12 +16,12 @@
           <Property Name="Available" Type="bit" Nullable="false" />
           <Property Name="Description" Type="text" />
           <Property Name="Image" Type="image" />
+          <Property Name="Renter" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="CarsModelStoreContainer">
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -36,6 +36,7 @@
           <Property Name="Available" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Renter" Type="String" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CarsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MyCars" EntityType="CarsModel.MyCar" />
@@ -49,6 +50,7 @@
           <EntitySetMapping Name="MyCars">
             <EntityTypeMapping TypeName="CarsModel.MyCar">
               <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Renter" ColumnName="Renter" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />

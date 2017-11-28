@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 using RentACar.Models;
 
 namespace RentACar.Controllers
@@ -57,7 +59,8 @@ namespace RentACar.Controllers
             }
             int id = -1;
             id = int.Parse(possibleCars);
-            db.ChangeAvailability(id);
+            string thisUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            db.ChangeAvailability(id,thisUserId);
             db.SaveChanges();
             return RedirectToAction("Cars");
         }
