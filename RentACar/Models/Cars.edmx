@@ -17,6 +17,7 @@
           <Property Name="Description" Type="text" />
           <Property Name="Image" Type="image" />
           <Property Name="Renter" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
         </EntityType>
         <EntityContainer Name="CarsModelStoreContainer">
           <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
@@ -36,7 +37,8 @@
           <Property Name="Available" Type="Boolean" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Renter" Type="String" Nullable="false" />
+          <Property Name="Renter" Type="String" Unicode="true" FixedLength="false" MaxLength="50" />
+          <Property Name="Price" Type="Int32" />
         </EntityType>
         <EntityContainer Name="CarsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MyCars" EntityType="CarsModel.MyCar" />
@@ -50,6 +52,7 @@
           <EntitySetMapping Name="MyCars">
             <EntityTypeMapping TypeName="CarsModel.MyCar">
               <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Renter" ColumnName="Renter" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="LicencePlate" ColumnName="LicencePlate" />

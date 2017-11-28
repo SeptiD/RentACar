@@ -32,7 +32,7 @@ namespace RentACar.Models
             MyCars.Add(carToCreate);
         }
 
-        internal void SetUnavailable(int Id,string renterId)
+        internal void SetUnavailable(int Id, string renterId)
         {
             if (Id != -1)
             {

@@ -57,14 +57,16 @@ namespace RentACar.Controllers
             string thisUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             db.SetUnavailable(id,thisUserId);
             db.SaveChanges();
-            return RedirectToAction("Cars");
+            return RedirectToAction("Cars","Car");
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Create([Bind(Exclude = "Id")] MyCar carToCreate)
         {
@@ -75,7 +77,7 @@ namespace RentACar.Controllers
 
             db.AddToCarSet(carToCreate);
             db.SaveChanges();
-            return RedirectToAction("Cars");
+            return RedirectToAction("Cars","Car");
 
         }
 
@@ -84,7 +86,7 @@ namespace RentACar.Controllers
         {
             db.MyCars.Remove(db.MyCars.Find(id));
             db.SaveChanges();
-            return RedirectToAction("Cars");
+            return RedirectToAction("Cars","Car");
 
         }
 
