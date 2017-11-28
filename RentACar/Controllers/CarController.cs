@@ -36,19 +36,14 @@ namespace RentACar.Controllers
         }
 
         [Authorize]
-        public ActionResult NewRent()
+        public ActionResult MyRents()
         {
-            List<SelectListItem> items = new List<SelectListItem>();
-            var possibleCars = from c in db.MyCars
-                where c.Available == true
+            string thisUserID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            var myRents = from c in db.MyCars
+                where c.Renter.Equals(thisUserID)
                 select c;
-
-            foreach (var aCar in possibleCars)
-            {
-                items.Add(new SelectListItem {Text = aCar.Name + " " + aCar.Brand, Value = aCar.Id.ToString()});
-            }
-            ViewBag.PossibleCars = items;
-            return View();
+            
+            return View(myRents.ToList());
         }
 
         public ActionResult UserSelectedCar(string possibleCars)
@@ -60,7 +55,7 @@ namespace RentACar.Controllers
             int id = -1;
             id = int.Parse(possibleCars);
             string thisUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            db.ChangeAvailability(id,thisUserId);
+            db.SetUnavailable(id,thisUserId);
             db.SaveChanges();
             return RedirectToAction("Cars");
         }
@@ -100,7 +95,14 @@ namespace RentACar.Controllers
                 return RedirectToAction("Login","Account");
             }
             UserSelectedCar(id.ToString());
-            return RedirectToAction("Cars", "Car");
+            return RedirectToAction("MyRents", "Car");
+        }
+
+        public ActionResult ReturnCar(int id)
+        {
+            db.SetAvailable(id);
+            db.SaveChanges();
+            return RedirectToAction("MyRents", "Car");
         }
 
     }

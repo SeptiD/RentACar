@@ -316,7 +316,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Car\NewRent.cshtml" />
+    <Content Include="Views\Car\MyRents.cshtml" />
     <Content Include="Views\Car\Cars.cshtml" />
     <Content Include="Views\Car\Details.cshtml" />
     <Content Include="Views\Car\Create.cshtml" />
