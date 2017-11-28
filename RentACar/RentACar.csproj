@@ -239,9 +239,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\CarImages\FiatPunto.jpg" />
     <Content Include="Images\CarImages\FordKuga.jpg" />
-    <Content Include="Images\CarImages\Mazda6break.jpg" />
+    <Content Include="Images\CarImages\Mazda6.jpg" />
+    <Content Include="Images\CarImages\SeatIbiza.jpg" />
     <Content Include="Images\CarImages\SeatLeon.jpg" />
+    <Content Include="Images\CarImages\ToyotaAuris.jpg" />
     <Content Include="Images\IndexImages\cars1.png" />
     <Content Include="Images\IndexImages\cars2.jpg" />
     <Content Include="Images\IndexImages\cars3.jpg" />
