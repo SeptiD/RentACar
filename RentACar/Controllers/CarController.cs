@@ -19,10 +19,19 @@ namespace RentACar.Controllers
 
         public ActionResult Cars()
         {
-            var cars = from c in db.MyCars
-                where c.Available == true
-                select c;
-            return View(cars.ToList());
+            if (System.Web.HttpContext.Current.User.Identity.Name.Equals("admin@mcadminum.com"))
+            {
+                var cars = from c in db.MyCars
+                    select c;
+                return View(cars.ToList());
+            }
+            else
+            {
+                var cars = from c in db.MyCars
+                    where c.Available == true
+                    select c;
+                return View(cars.ToList());
+            }
         }
 
         public ActionResult Details(int id)
